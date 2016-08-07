@@ -1,0 +1,20 @@
+style.
+  label{display: block; margin: 0.5em;}
+div(style="color:red")= err
+form(method="POST")
+  label
+    input(name="uwemail" value=uwemail placeholder="your_email" required)
+    | @uwaterloo.ca
+  label
+    input(type="password" name="pass" value=pass placeholder="Password" required)
+    input(type="password" name="confpass" value=confpass placeholder="Confirm Password" required)
+  label
+    input(name="newemail" value=newemail placeholder="email_you_want" required)
+    | @ 
+    input(name="domain" value=domain placeholder="domain_you_want" required)
+    |.
+    select(name="tld")
+      each val, index in tlds
+        option= index
+  label
+    input(type="submit" value="Submit")

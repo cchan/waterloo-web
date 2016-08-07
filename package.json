@@ -4,7 +4,7 @@
   "description": "Automated creation of website email and https-secured domain.",
   "main": "server.coffee",
   "scripts": {
-    "start": "coffee server.coffee",
+    "start": "nodemon server.coffee",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,10 +18,15 @@
   },
   "homepage": "https://github.com/cchan/waterloo-web#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "cloudflare": "^1.0.4",
     "express": "^4.14.0",
+    "flat-file-db": "^1.0.0",
     "helmet": "^2.1.2",
     "mailgun-js": "^0.7.11",
-    "namecheap-api": "^1.0.2"
+    "namecheap-api": "^1.0.2",
+    "pug": "^2.0.0-beta4",
+    "underscore": "^1.8.3",
+    "whois": "^2.3.1"
   }
 }
