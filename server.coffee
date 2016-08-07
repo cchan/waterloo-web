@@ -45,10 +45,10 @@ app.post '/', (req, res, next) =>
     return next 'Invalid new email'
   if /[^a-z0-9]/i.test req.body.domain
     return next 'Invalid domain'
-  if /[^a-z]/i.test req.body.tld or !tlds[req.body.tld]
-    return next 'Invalid TLD'
+  if /[^a-z]/i.test req.body.tld or !tlds.hasOwnProperty req.body.tld
+    return next 'Invalid TLD: supported tlds are ' + JSON.stringify Object.keys tlds
   
-  if db.get req.body.uwemail
+  if db.has req.body.uwemail
     return next 'UW email already used'
   
   dns.resolve4 req.body.domain + '.' + req.body.tld, (err, addresses) =>
