@@ -1,0 +1,27 @@
+{
+  "name": "waterloo-web",
+  "version": "1.0.0",
+  "description": "Automated creation of website email and https-secured domain.",
+  "main": "server.coffee",
+  "scripts": {
+    "start": "coffee server.coffee",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cchan/waterloo-web.git"
+  },
+  "author": "Clive Chan (cc@clive.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cchan/waterloo-web/issues"
+  },
+  "homepage": "https://github.com/cchan/waterloo-web#readme",
+  "dependencies": {
+    "cloudflare": "^1.0.4",
+    "express": "^4.14.0",
+    "helmet": "^2.1.2",
+    "mailgun-js": "^0.7.11",
+    "namecheap-api": "^1.0.2"
+  }
+}
