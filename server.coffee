@@ -10,6 +10,7 @@ _ = require 'underscore'
 Namecheap = require 'namecheap-api'
 Cloudflare = require 'cloudflare'
 Mailgun = require 'mailgun-js'
+Github = require 'github'
 
 bodyParser = require 'body-parser'
 helmet = require 'helmet'
