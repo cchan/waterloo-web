@@ -1,0 +1,9 @@
+extend layout.pug
+
+block content
+  form(method="POST")
+    input(type="email" name="email" placeholder="email@uwaterloo.ca")
+    input(type="password" name="pass" placeholder="Password")
+    input(type="submit" value="login")
+  p Don't have an account? 
+    a(href="register") register
