@@ -37,6 +37,8 @@ app.get '/', (req, res) =>
 app.post '/', (req, res, next) =>
   if /[^a-z0-9\.]/i.test req.body.uwemail
     return next 'Invalid UW email'
+  if req.body.uwdomain != 'uwaterloo.ca' and req.body.uwdomain != 'edu.uwaterloo.ca'
+    return next 'Invalid UW email'
   if req.body.pass != req.body.confpass
     return next 'Passwords do not match'
   if req.body.pass.length < 8
@@ -48,7 +50,9 @@ app.post '/', (req, res, next) =>
   if /[^a-z]/i.test req.body.tld or !tlds.hasOwnProperty req.body.tld
     return next 'Invalid TLD: supported tlds are ' + JSON.stringify Object.keys tlds
   
-  if db.has req.body.uwemail
+  email = req.body.uwemail + '@' + req.body.uwdomain
+  
+  if db.has email
     return next 'UW email already used'
   
   dns.resolve4 req.body.domain + '.' + req.body.tld, (err, addresses) =>
@@ -57,13 +61,13 @@ app.post '/', (req, res, next) =>
         if err
           next 'WHOIS lookup error'
         else if data.includes tlds[req.body.tld]
-          db.put req.body.uwemail,
-            pass: hash req.body.uwemail, req.body.pass
+          db.put email,
+            pass: hash email, req.body.pass
             email: req.body.newemail
             domain: req.body.domain
             tld: req.body.tld
           res.contentType 'text/plain'
-          res.send JSON.stringify db.get(req.body.uwemail), null, '\t'
+          res.send JSON.stringify email, null, '\t'
         else
           next 'Domain unavailable (WHOIS)'
     else

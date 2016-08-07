@@ -4,7 +4,10 @@ div(style="color:red")= err
 form(method="POST")
   label
     input(name="uwemail" value=uwemail placeholder="your_email" required)
-    | @uwaterloo.ca
+    | @ 
+    select(name="uwdomain")
+      option uwaterloo.ca
+      option edu.uwaterloo.ca
   label
     input(type="password" name="pass" value=pass placeholder="Password" required)
     input(type="password" name="confpass" value=confpass placeholder="Confirm Password" required)
