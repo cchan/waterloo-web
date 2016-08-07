@@ -61,6 +61,7 @@ app.post '/', (req, res, next) =>
             pass: hash req.body.uwemail, req.body.pass
             email: req.body.newemail
             domain: req.body.domain
+            tld: req.body.tld
           res.contentType 'text/plain'
           res.send JSON.stringify db.get(req.body.uwemail), null, '\t'
         else
