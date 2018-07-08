@@ -5,7 +5,9 @@
   "main": "server.coffee",
   "scripts": {
     "start": "nodemon server.coffee",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,8 @@
     "namecheap-api": "^1.0.2",
     "pug": "^2.0.0-beta4",
     "underscore": "^1.8.3",
-    "whois": "^2.3.1"
-  }
+    "whois": "^2.3.1",
+    "snyk": "^1.88.2"
+  },
+  "snyk": true
 }
