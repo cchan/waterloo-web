@@ -27,7 +27,7 @@
     "helmet": "^2.1.2",
     "mailgun-js": "^0.7.11",
     "namecheap-api": "^1.0.2",
-    "pug": "^2.0.0-beta4",
+    "pug": "^3.0.0",
     "underscore": "^1.8.3",
     "whois": "^2.3.1"
   }
