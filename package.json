@@ -5,7 +5,9 @@
   "main": "server.coffee",
   "scripts": {
     "start": "nodemon server.coffee",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -23,12 +25,14 @@
     "express": "^4.14.0",
     "express-session": "^1.14.0",
     "flat-file-db": "^1.0.0",
-    "github": "^2.4.0",
-    "helmet": "^2.1.2",
-    "mailgun-js": "^0.7.11",
+    "github": "^13.0.0",
+    "helmet": "^3.21.1",
+    "mailgun-js": "^0.14.0",
     "namecheap-api": "^1.0.2",
-    "pug": "^2.0.0-beta4",
+    "pug": "^3.0.1",
     "underscore": "^1.8.3",
-    "whois": "^2.3.1"
-  }
+    "whois": "^2.3.1",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }
